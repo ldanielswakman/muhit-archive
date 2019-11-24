@@ -1,0 +1,20 @@
+[
+	{
+		"id": 29,
+		"user_id": 8,
+		"status": "new",
+		"city_id": 1,
+		"district_id": 8,
+		"hood_id": 15,
+		"title": "Sıraselviler daha yürünebilir bir cadde olsun."
+	},
+	{
+		"id": 30,
+		"user_id": 1,
+		"status": "new",
+		"city_id": 1,
+		"district_id": 8,
+		"hood_id": 17,
+		"title": "Karakoy yollari duzenlensin"
+	}
+]

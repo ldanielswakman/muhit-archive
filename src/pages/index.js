@@ -1,9 +1,10 @@
 import React from "react"
 import Nav from "../components/nav"
+import Layout from "../components/layout"
 
-export default () => 
-	<div>
-  	<Nav />
+export default () => (
+	<Layout>
+		<Nav />
 		Hello world!
-		<img src={'../../images/mockup-map-kadikoy.jpg'} alt="Muhit Test" />
-	</div>
+	</Layout>
+)
