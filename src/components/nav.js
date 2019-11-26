@@ -1,4 +1,6 @@
 import React from "react"
+import { Link } from "gatsby"
+
 import Logo from "./logo"
 
 export default () => 
@@ -23,9 +25,9 @@ export default () =>
             </span>
           </div>
             
-          <a href="/" id="nav_logo" className="u-floatleft">
-              <Logo />
-          </a>
+          <Link to="/" id="nav_logo" className="u-floatleft">
+            <Logo />
+          </Link>
 
           <ul class="menu">
               <li className="active">

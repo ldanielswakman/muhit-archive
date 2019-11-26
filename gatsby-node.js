@@ -1,24 +1,31 @@
 const path = require('path');
-const data = require('./data/ideas.json');
+const { createFilePath } = require('gatsby-source-filesystem');
 
-exports.createPages = ({ actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
-
-  // Your component that should be rendered for every item in JSON.
   const template = path.resolve(`src/templates/idea.js`);
 
-  // Create pages for each JSON entry.
-  data.forEach(({ title }) => {
-    const path = title;
-
-    createPage({
-      path,
-      component: template,
-
-      // Send additional data to page from JSON (or query inside template)
-      context: {
-        path
+  // Query items in JSON
+  const result = await graphql(`
+    query {
+      allIdeasJson {
+        edges {
+          node {
+            id
+          }
+        }
       }
-    });
-  });
-};
+    }
+  `)
+
+  // Create pages from items
+  result.data.allIdeasJson.edges.forEach(({ node }) => {
+    createPage({
+      path: node.id,
+      component: template,
+      context: {
+        id: node.id
+      }
+    })
+  })
+}
