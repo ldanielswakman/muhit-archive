@@ -18,19 +18,24 @@ export default ({ data }) => {
 
 				<div className="list list-expanded list_block u-mt10 u-mb20" style={{ marginTop: '5rem', maxWidth: '60rem' }}>
 					<ul className="list-content">
-						{ideas.map(({ node }) => (
-			          <li key={node.id}>
-			            <Link to={node.id} >
-			            	<div className="badge badge-image u-floatleft u-mr15 u-pt15">{node.id}</div>
-			              <strong>{node.title}</strong>
-			              <p>{node.title}</p>
-			            </Link>
-			          </li>
-			        ))}
-						</ul>
-					</div>
-
-				<p className="u-mb20">This data is being pulled from <strong>ideas.json</strong>. Not only does it generate this list on client runtime — it also builds static pages!</p>
+						{ideas.map(({ node },i) => (
+							<React.Fragment key={node.id}>
+								{(i < 3) && (
+				          <li key={node.id}>
+				            <Link to={node.id} >
+				            	<div className="badge badge-image u-floatleft u-mr15 u-pt15">{node.id}</div>
+				              <strong>{node.title}</strong>
+				              <p>{node.title}</p>
+				            </Link>
+				          </li>
+				        )}
+			        </React.Fragment>
+						))}
+						{(ideas.length > 5) && (
+							<li><Link to="/ideas" className="u-pl80">View all ideas <i className="ion ion-chevron-right u-ml10 ion-075x"></i></Link></li>
+						)}
+					</ul>
+				</div>
 
 				</main>
 			
