@@ -7691,7 +7691,8 @@ nav #nav_quickadd {
 .menu a .ion {
   display: block;
 }
-.menu li.active a {
+.menu li.active a,
+.menu li a.active {
   color: #ffffff;
   border-top-color: #ffffff;
 }

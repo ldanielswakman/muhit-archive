@@ -30,20 +30,20 @@ export default () =>
           </Link>
 
           <ul className="menu">
-              <li className="active">
-                  <Link to="/" className="u-nowrap">
+              <li>
+                  <Link to="/" className="u-nowrap" activeClassName="active">
                       <i className="ion ion-android-home ion-15x"></i>
                       Story
                   </Link>
               </li>
               <li>
-                  <Link to="/report" className="u-nowrap">
+                  <Link to="/report" className="u-nowrap" activeClassName="active">
                       <i className="ion ion-clipboard ion-15x"></i>
                       Report
                   </Link>
               </li>
               <li>
-                  <Link to="/ideas" className="u-nowrap">
+                  <Link to="/ideas" className="u-nowrap" activeClassName="active">
                       <i className="ion ion-lightbulb ion-15x"></i>
                       Idea archive
                   </Link>
