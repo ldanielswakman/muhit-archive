@@ -3,16 +3,13 @@ import { Link, graphql } from "gatsby"
 
 import Nav from "../components/nav"
 import Layout from "../components/layout"
+import IdeaListItem from "../components/idea-list-item"
 import Pagination from "../components/pagination"
 
 export default ({ data, pageContext }) => {
-	const ideas = data.allIdeasJson.edges;
 
+	const ideas = data.allIdeasJson.edges;
   const { currentPage, numPages } = pageContext;
-  // const isFirst = currentPage === 1;
-  // const isLast = currentPage === numPages;
-  // const prevPage = currentPage - 1 === 1 ? '/' : (currentPage - 1).toString();
-  // const nextPage = (currentPage + 1).toString();
 
 	return (
 		<Layout>
@@ -29,11 +26,7 @@ export default ({ data, pageContext }) => {
 					<ul className="list-content">
 						{ideas.map(({ node }) => (
 			          <li key={node.id}>
-			            <Link to={'idea/' + node.id} >
-			            	<div className="badge badge-image u-floatleft u-mr15 u-pt15">{node.id}</div>
-			              <strong>{node.title}</strong>
-			              <p>{node.title}</p>
-			            </Link>
+			          	<IdeaListItem idea={node} />
 			          </li>
 			        ))}
 						</ul>
@@ -58,6 +51,21 @@ export const query = graphql`
         node {
           id
           title
+          supporter_count
+          status
+          created_at(formatString: "D MMM YYYY")
+          location
+          images {
+          	id
+          	image
+          }
+          tags {
+          	name
+          	background
+          }
+          comments {
+          	id
+          }
         }
       }
     }

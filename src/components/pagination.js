@@ -6,7 +6,7 @@ export default (props) => {
   const pageBuffer = 3;
 
   return (
-    <ul className="pagination u-mb20" data-currentPage={currentPage} data-numPages={numPages}>
+    <ul className="pagination u-mb20">
 
       {/* Prev page link */}
       {currentPage === 1 ? (
@@ -24,9 +24,9 @@ export default (props) => {
       )}
 
       {Array.from({ length: numPages }, (_, i) => (
-        <React.Fragment>
+        <React.Fragment key={i + 1}>
           {(i < currentPage + pageBuffer) && (i > currentPage - pageBuffer - 2) && (
-            <li key={i + 1} className={(i + 1 === currentPage) && 'active'}>
+            <li className={(i + 1 === currentPage) ? 'active' : undefined}>
               <Link to={`ideas/${i === 0 ? '' : i + 1}`}>{i + 1}</Link>
             </li>
           )}
