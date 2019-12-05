@@ -1,14 +1,22 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import { Helmet } from "react-helmet"
 
 import Nav from "../components/nav"
 import Layout from "../components/layout"
 
 export default ({ data }) => {
+	
 	const ideas = data.allIdeasJson.edges;
 
 	return (
 		<Layout>
+
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>{data.site.siteMetadata.title}</title>
+        <link rel="canonical" href={data.site.siteMetadata.siteUrl} />
+      </Helmet>
 
 			<Nav />
 
@@ -52,6 +60,12 @@ export const query = graphql`
           id
           title
         }
+      }
+    }
+    site {
+      siteMetadata {
+        title
+        siteUrl
       }
     }
   }

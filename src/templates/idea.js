@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import { Helmet } from "react-helmet"
 
 import Nav from "../components/nav"
 import Layout from "../components/layout"
@@ -40,6 +41,12 @@ export default ({ data }) => {
 
 	return (
 		<Layout>
+
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>{idea.title} - {data.site.siteMetadata.title}</title>
+        <link rel="canonical" href={data.site.siteMetadata.siteUrl} />
+      </Helmet>
 
 			<Nav />
 
@@ -217,6 +224,7 @@ export const query = graphql`
 		}
     site {
       siteMetadata {
+        title
         siteUrl
       }
     }
