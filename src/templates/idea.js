@@ -155,7 +155,7 @@ export default ({ data }) => {
 
                   <div className="u-floatright">
                     <span className="hasTooltip u-ml10">
-                      <a href={ 'https://docs.google.com/forms/d/1Gwyj1OZ_MkMF7QYBN625ADYWIifMsQdFqACA7uTcof0/viewform?entry.22153642&entry.903793893&entry.960103609&entry.512574518=' + idea.title} className="btn btn-tertiary" target="_blank"><i className="ion ion-alert-circled"></i></a>
+                      <a href={ 'https://docs.google.com/forms/d/1Gwyj1OZ_MkMF7QYBN625ADYWIifMsQdFqACA7uTcof0/viewform?entry.22153642&entry.903793893&entry.960103609&entry.512574518=' + idea.title} className="btn btn-tertiary" target="_blank" rel="noopener noreferrer"><i className="ion ion-alert-circled"></i></a>
                       <span className="tooltip tooltip-alignright u-width300 u-mr5">
                         <i className="ion ion-alert-circled ion-15x u-floatleft u-mv10 u-mr10"></i>
                         <div className="u-ml30">Does this idea contain inappropriate content? Let us know.</div>
@@ -220,7 +220,10 @@ export const query = graphql`
       comments {
       	id
         created_at(formatString: "D MMM YYYY HH:mm")
-        user_id
+        user {
+          first_name
+          last_name
+        }
         comment
       }
 		}

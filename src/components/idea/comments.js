@@ -16,7 +16,7 @@ export default (props) => {
             <small>{comment.created_at}</small>
           </div>
           <p class="u-lineheight20">
-            user ID: <strong>{ comment.user_id }</strong> (user first/last name missing)
+            <strong>{ comment.user.first_name } { comment.user.first_name }</strong>
           </p>
           <p class="u-mt5">
             <em class="comment-message">
