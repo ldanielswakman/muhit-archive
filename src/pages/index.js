@@ -21,8 +21,8 @@ export default ({ data }) => {
 						{ideas.map(({ node },i) => (
 							<React.Fragment key={node.id}>
 								{(i < 3) && (
-				          <li key={node.id}>
-				            <Link to={node.id} >
+				          <li>
+				            <Link to={'idea/' + node.id} >
 				            	<div className="badge badge-image u-floatleft u-mr15 u-pt15">{node.id}</div>
 				              <strong>{node.title}</strong>
 				              <p>{node.title}</p>

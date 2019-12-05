@@ -53,6 +53,6 @@ export default () =>
         </div>
       </div>
   	</nav>
-  	<div style={{ height: '5rem' }}></div>
+  	<div style={{ height: '80px' }}></div>
 	</React.Fragment>
 	

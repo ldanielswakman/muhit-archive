@@ -36,7 +36,7 @@ export default (props) => {
   const imageURL = getImageURL(image, '50x50');
 
   return (
-    <Link to={'idea/' + idea.id} >
+    <Link to={'idea/' + idea.id}>
 
       <div className="badge badge-image u-floatleft u-mr15">
         <img src={ imageURL } alt={idea.title} />
