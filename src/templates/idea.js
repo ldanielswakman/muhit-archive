@@ -14,6 +14,8 @@ function getImageURL(url, size = '80x80') {
 export default ({ data }) => {
 	const idea = data.ideasJson;
 
+	const ideaPath = (typeof window !== `undefined`) ? window.location : data.site.siteMetadata.siteUrl;
+
 	const imagecol = (idea.images.length === 0) ? 'col-xs-4 extended' : 'col-sm-8';
 	const mapcol = (idea.images.length === 0) ? 'col-sm-8 compact' : 'col-sm-4';
 
@@ -51,7 +53,7 @@ export default ({ data }) => {
 						<div className="card card-issue">
 
 							<div className="card-header u-clearfix">
-								<IdeaActions idea={idea} />
+								<IdeaActions idea={idea} ideaPath={ideaPath} />
 								<a href="javascript:window.history.back()" className="u-floatleft u-pr20"><i className="ion ion-android-arrow-back ion-2x"></i></a>
 								<span className="title u-inlineblock u-mt5">
 									<Link to={'/ideas?location=' + encodeURIComponent(idea.location)}>{ idea.location }</Link>,
@@ -213,5 +215,10 @@ export const query = graphql`
       	id
       }
 		}
+    site {
+      siteMetadata {
+        siteUrl
+      }
+    }
 	}
 `

@@ -1,11 +1,11 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.org/docs/gatsby-config/
- */
-
 module.exports = {
-  /* Your site config here */
+
+  siteMetadata: {
+    title: `Muhit Archive`,
+    siteUrl: `https://muhit-archive.netlify.com/`,
+    description: `Muhit is a crowdsourced neighbourhood improvement platform`,
+  },
+
   plugins: [
   	{
   		resolve: 'gatsby-plugin-favicon',
