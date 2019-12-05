@@ -6,6 +6,7 @@ import Nav from "../components/nav"
 import Layout from "../components/layout"
 import IdeaActions from "../components/idea/actions"
 import IdeaStatus from "../components/idea/status"
+import IdeaComments from "../components/idea/comments"
 
 function getImageURL(url, size = '80x80') {
   const baseURL = '//d1vwk06lzcci1w.cloudfront.net/';
@@ -166,7 +167,7 @@ export default ({ data }) => {
                 			{idea.updates.map((update, i) => (
                         <li key={i}>
                           <i class="ion ion-record u-mr10"></i>
-                          <span class="date">{update.created_at}</span> –
+                          <span class="date">{update.created_at}</span> – &nbsp;
                           <strong>{update_strings['idea_status_' + update.new_status]}</strong>.
                         </li>
               				))}
@@ -175,14 +176,12 @@ export default ({ data }) => {
 							</div>
 
 						</div>
+
+            <IdeaComments idea={idea} />
+
 					</div>
 				</div>
 			</section>
-
-			<div style={{ textAlign: 'center', marginTop: '5rem' }}>
-				<h1>{idea.title}</h1>
-				<h3>{idea.id}</h3>
-			</div>
 			
 		</Layout>
 	)
@@ -220,6 +219,9 @@ export const query = graphql`
       }
       comments {
       	id
+        created_at(formatString: "D MMM YYYY HH:mm")
+        user_id
+        comment
       }
 		}
     site {
