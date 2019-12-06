@@ -1,0 +1,12 @@
+/* Transitional classes for list & card */
+.list, .card {
+	transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+	transform: translateY(2rem);
+	opacity: 0;
+}
+
+.layout.isLoaded .list,
+.layout.isLoaded .card {
+	transform: translateY(0);
+	opacity: 1;
+}

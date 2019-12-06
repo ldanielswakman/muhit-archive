@@ -3,8 +3,6 @@ import React from "react"
 export default (props) => {
 	const { idea } = props;
 
-  console.log(idea.comments);
-
 	return (
     <div className="clearfix u-mb50">
 

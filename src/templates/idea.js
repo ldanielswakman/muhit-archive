@@ -163,11 +163,11 @@ export default ({ data }) => {
                     </span>
                   </div>
 
-                  <ul class="issue-history title">
+                  <ul className="issue-history title">
                 			{idea.updates.map((update, i) => (
                         <li key={i}>
-                          <i class="ion ion-record u-mr10"></i>
-                          <span class="date">{update.created_at}</span> – &nbsp;
+                          <i className="ion ion-record u-mr10"></i>
+                          <span className="date">{update.created_at}</span> – &nbsp;
                           <strong>{update_strings['idea_status_' + update.new_status]}</strong>.
                         </li>
               				))}
