@@ -1,6 +1,8 @@
 import React from "react"
 import { Link } from "gatsby"
 
+import Tag from "../components/tag"
+
 function getIssueStatus(status, supporters) {
   var issue_status = {
     'title': 'Created',
@@ -59,23 +61,19 @@ export default (props) => {
         <p>
 
           {idea.tags.map((tag, i) => (
-            <React.Fragment key={i + 1}>
+            <React.Fragment key={i}>
               {(i < 5) && (
-                <span className="tag u-floatleft u-mv5 u-mr5" style={{ backgroundColor: '#' + tag.background }}>
-                  <span className="col-xs-hide">{tag.name}</span>
-                </span>
+                <Tag tag={tag} />
               )}
 
               {i === 5 && (
-                <span className="tag u-floatleft u-mv5 u-mr5 bg-lightest">
-                  <span className="col-xs-hide c-light">...</span>
-                </span>
+                <Tag tag={{ 'name': '...', 'background' : 'eeeeee' }} />
               )}
             </React.Fragment>
           ))}
 
           <span className="extended">
-            |<span title={idea.location} class="u-ml10">{ idea.location.split(', ')[0] }</span>
+            |<span title={idea.location} className="u-ml10">{ idea.location.split(', ')[0] }</span>
           </span>
 
           <span className="date u-floatleft u-mr10">{idea.created_at}</span>

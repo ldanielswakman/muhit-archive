@@ -10,11 +10,12 @@ exports.createPages = async ({ graphql, actions }) => {
   const result = await graphql(`
     query {
       allIdeasJson(
-        limit: 1000
+        sort: { fields: [created_at], order: DESC }
       ) {
         edges {
           node {
             id
+            created_at(formatString: "D MMM YYYY")
           }
         }
       }
@@ -36,6 +37,7 @@ exports.createPages = async ({ graphql, actions }) => {
         skip: i * ideasPerPage,
         numPages,
         currentPage: i + 1,
+        tag: null,
       },
     })
   })

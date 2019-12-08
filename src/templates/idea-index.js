@@ -6,11 +6,20 @@ import Nav from "../components/nav"
 import Layout from "../components/layout"
 import IdeaListItem from "../components/idea-list-item"
 import Pagination from "../components/pagination"
+import Tag from "../components/tag"
 
 export default ({ data, pageContext }) => {
 
 	const ideas = data.allIdeasJson.edges;
+  const tags = data.allTagsJson.edges;
   const { currentPage, numPages } = pageContext;
+
+  const [state, setState] = React.useState({
+    tagDropdownOpen: false
+  })
+  const { tagDropdownOpen } = state;
+
+  var tagDropdownState = ''; // isOpen
 
 	return (
 		<Layout>
@@ -28,6 +37,21 @@ export default ({ data, pageContext }) => {
 				<h1 className="u-mb60">Muhit Story, Research report & Idea archive</h1>
 				<span>Total number of ideas:</span><strong>{data.allIdeasJson.totalCount}</strong>
 				<br />
+
+        <div style={{display: 'flex'}}>
+          <div className="hasDropdown">
+            <a onClick={() => { setState({ tagDropdownOpen: !tagDropdownOpen }) } } className="btn btn-sm btn--filter">Tags <i className="ion ion-chevron-down" /></a>
+            <div className={'dropdown dropdown-onleft' + (tagDropdownOpen && ' isOpen')} style={{ right: 'auto', left: 0 }}>
+              <ul>
+                {tags.map(({ node }) => (
+                    <li key={node.id} className="u-clearfix">
+                      <a href={'/tag/' + node.id }><Tag tag={node} /></a>
+                    </li>
+                  ))}
+              </ul>
+            </div>
+          </div>
+        </div>
 
 				<div className="list list-expanded list_block u-mt10 u-mb20" style={{ marginTop: '5rem', maxWidth: '60rem' }}>
 					<ul className="list-content">
@@ -52,6 +76,7 @@ export const query = graphql`
     allIdeasJson(
       limit: $limit
       skip: $skip
+      sort: { fields: [created_at], order: DESC }
     ) {
       totalCount
       edges {
@@ -73,6 +98,16 @@ export const query = graphql`
           comments {
           	id
           }
+        }
+      }
+    }
+    allTagsJson {
+      totalCount
+      edges {
+        node {
+          id
+          name
+          background
         }
       }
     }

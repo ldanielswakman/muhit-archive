@@ -10,3 +10,17 @@
 	transform: translateY(0);
 	opacity: 1;
 }
+
+/* Filter button */
+.btn.btn--filter {
+	background-color: rgba(0, 0, 0, 0.1);
+	color: inherit;
+	opacity: 0.5;
+}
+.btn.btn--filter:hover {
+	opacity: 1;
+}
+.btn.btn--filter .ion {
+	margin-left: 2px;
+	opacity: 0.5;
+}
