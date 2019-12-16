@@ -19,9 +19,12 @@
     "gatsby-plugin-react-helmet": "^3.1.16",
     "gatsby-source-filesystem": "^2.1.38",
     "gatsby-transformer-json": "^2.2.19",
+    "google-map-react": "^1.1.5",
+    "i18next": "^19.0.1",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "react-i18next": "^11.2.5"
   },
   "devDependencies": {
     "prettier": "^1.19.1"

@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet"
 import Nav from "../components/nav"
 import Layout from "../components/layout"
 import IdeaListItem from "../components/idea-list-item"
+import IdeaMap from "../components/idea/idea-map"
 import Pagination from "../components/pagination"
 import Tag from "../components/tag"
 
@@ -18,8 +19,6 @@ export default ({ data, pageContext }) => {
     tagDropdownOpen: false
   })
   const { tagDropdownOpen } = state;
-
-  var tagDropdownState = ''; // isOpen
 
 	return (
 		<Layout>
@@ -44,22 +43,31 @@ export default ({ data, pageContext }) => {
             <div className={'dropdown dropdown-onleft' + (tagDropdownOpen && ' isOpen')} style={{ right: 'auto', left: 0 }}>
               <ul>
                 {tags.map(({ node }) => (
-                    <li key={node.id} className="u-clearfix">
-                      <a href={'/tag/' + node.id }><Tag tag={node} /></a>
-                    </li>
-                  ))}
+                  <React.Fragment key={node.id}>
+                    {(node.name.length > 0) &&
+                      <li className="u-clearfix">
+                        <a href={'/tag/' + node.id }>
+                          <span className="tag tag-collapsed" style={{ 'background': '#' + node.background }} />
+                          {node.name}
+                        </a>
+                      </li>
+                    }
+                  </React.Fragment>
+                ))}
               </ul>
             </div>
           </div>
         </div>
 
+        <IdeaMap ideas={ideas} />
+
 				<div className="list list-expanded list_block u-mt10 u-mb20" style={{ marginTop: '5rem', maxWidth: '60rem' }}>
 					<ul className="list-content">
 						{ideas.map(({ node }) => (
-			          <li key={node.id}>
-			          	<IdeaListItem idea={node} />
-			          </li>
-			        ))}
+		          <li key={node.id}>
+		          	<IdeaListItem idea={node} />
+		          </li>
+		        ))}
 						</ul>
 					</div>
 
@@ -87,6 +95,7 @@ export const query = graphql`
           status
           created_at(formatString: "D MMM YYYY")
           location
+          coordinates
           images {
           	id
           	image
