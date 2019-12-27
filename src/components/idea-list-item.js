@@ -32,7 +32,7 @@ function getImageURL(url, size = '80x80') {
 
 export default (props) => {
   
-  const { idea } = props;
+  const { idea, ignoreImage } = props;
   const issueStatus = getIssueStatus(idea.status, idea.supporter_count);
   const image = (idea.images.length > 0) ? idea.images[0].image : 'placeholders/issue.jpg';
   const imageURL = getImageURL(image, '50x50');
@@ -40,9 +40,15 @@ export default (props) => {
   return (
     <Link to={'idea/' + idea.id}>
 
-      <div className="badge badge-image u-floatleft u-mr15">
-        <img src={ imageURL } alt={idea.title} />
-      </div>
+      {ignoreImage ? (
+        <div className="badge u-floatleft u-mr15 u-width50 u-pv10" style={{ height: 50 }}>
+          <i className={'ion ion-lightbulb ion-15x c-light'}></i>
+        </div>
+      ):(
+        <div className="badge badge-image u-floatleft u-mr15">
+          <img src={ imageURL } alt={idea.title} />
+        </div>
+      )}
 
       <div className={'badge badge-support badge-' + issueStatus.class + ' u-floatright u-mt10 u-pv5 u-ph10 u-ml10'}>
           <i className={'ion ' + issueStatus.icon + ' u-mr5'}></i>

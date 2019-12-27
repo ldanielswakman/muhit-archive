@@ -21,6 +21,7 @@
     "gatsby-transformer-json": "^2.2.19",
     "google-map-react": "^1.1.5",
     "i18next": "^19.0.1",
+    "js-search": "^1.4.3",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-helmet": "^5.2.1",
