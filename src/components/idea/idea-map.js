@@ -18,21 +18,15 @@ export default (props) => {
 	const center = { lat: 39.268993, lng: 34.570262 };
 	const zoom = 6;
 	return (
-    <div className="" style={{ width: '100%', height: 450}}>
+    <div className="gatsby-map">
 	    <GoogleMapReact
         bootstrapURLKeys={{ key: apiKey }}
         defaultCenter={center}
         defaultZoom={zoom}>
 
-				<IdeaMapMarker
-					lat={40.855729}
-					lng={29.143518}
-					text={"test"}
-				/>
-
-				{ideas.map(({ node }) => (
+				{ideas.map(({ node }, i) => (
 					<IdeaMapMarker
-						key={node.id}
+						key={i}
 						idea={node}
 						lat={getLat(node)}
 						lng={getLng(node)}

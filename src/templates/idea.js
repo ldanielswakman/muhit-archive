@@ -57,7 +57,7 @@ export default ({ data }) => {
 
 			<section>
 				<div className="row">
-					<div className="col-md-10 col-md-offset-1">
+					<div className="col-xs-12 col-md-10 col-md-offset-1 u-ph10">
 						<div className="card card-issue">
 
 							<div className="card-header u-clearfix">

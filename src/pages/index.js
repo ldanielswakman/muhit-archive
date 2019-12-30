@@ -20,7 +20,7 @@ export default ({ data }) => {
 
 			<Nav />
 
-			<main className="u-mt60" style={{ maxWidth: '60rem', margin: '0 auto', background: 'none' }}>
+			<main className="u-ph10 u-mt60" style={{ maxWidth: '60rem', margin: '0 auto', background: 'none' }}>
 
 				<h1 className="u-mb60">Muhit Story, Research report & Idea archive</h1>
 

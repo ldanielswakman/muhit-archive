@@ -34,7 +34,7 @@ export default (props) => {
 			<a href={'whatsapp://send?text=' + whatsapp_text} id="whatsapp_share_button" className="btn btn-secondary btn-whatsapp u-hidden"><i className="ion ion-social-whatsapp"></i></a>
 			<a href={twitter_url} id="twitter_share_button" className="btn btn-secondary btn-twitter" target="_blank" rel="noopener noreferrer"><i className="ion ion-social-twitter"></i></a>
 			<a href={facebook_url} id="facebook_share_button" className="btn btn-secondary btn-facebook" target="_blank" rel="noopener noreferrer"><i className="ion ion-social-facebook ion-15x"></i></a>
-			<span data-dialog="dialog_login" className="btn btn-secondary u-ml5"><i className="ion ion-thumbsup"></i> DESTEKLE</span>
+			<span className="btn btn-secondary u-ml5" onClick={() => { alert('this is a read-only version the Muhit project; support functionality does not work at the moment.') }}><i className="ion ion-thumbsup"></i> SUPPORT</span>
 		</div>
 	)
 }

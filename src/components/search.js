@@ -106,7 +106,7 @@ class Search extends Component {
                     )}  
                   </React.Fragment>
                 ) : (
-                  <li><a className="u-pl80 c-light">No results found</a></li>
+                  <li><a className="u-pl80 c-light">No results for <b>{searchQuery}</b></a></li>
                 )}
               </ul>
             </div>

@@ -7,7 +7,7 @@ export default (props) => {
 
 	return (
     <Link to={'idea/'} style={{position: 'relative'}}>
-    	<img src={'../map-icons/marker_new@3x.png'} style={{
+    	<img src={'../map-icons/marker_new@3x.png'} alt={idea.title} style={{
     		position: 'absolute',
     		top: -41,
     		left: -23,

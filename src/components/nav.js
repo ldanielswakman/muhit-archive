@@ -9,7 +9,7 @@ export default () =>
 	    <div className="row row-nopadding">
         <div className="col-xs-12 u-aligncenter">
 
-          <div className="u-floatright u-nowrap">
+          <div className="u-floatright u-nowrap" onClick={() => { alert('this is a read-only version the Muhit project; login functionality does not work at the moment.') }}>
             <a href="/login" className="btn btn-quaternary u-mt15 u-mr5" style={{ opacity: 0.2, pointerEvents: 'none' }}>
               <span className="condensed"><i className="ion ion-log-in ion-15x u-floatleft"></i></span>
               <span className="extended">LOG IN</span>
@@ -53,6 +53,6 @@ export default () =>
         </div>
       </div>
   	</nav>
-  	<div style={{ height: '80px' }}></div>
+  	<div className="nav-spacer"></div>
 	</React.Fragment>
 	

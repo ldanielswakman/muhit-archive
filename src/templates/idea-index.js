@@ -19,6 +19,9 @@ export default ({ data, pageContext }) => {
     ideasTotal.push(item.node);
   })
 
+  console.log(ideasPaginated);
+  console.log(ideasTotal);
+
   return (
     <Layout>
 
@@ -30,11 +33,7 @@ export default ({ data, pageContext }) => {
 
       <Nav />
 
-      <main className="u-mt60" style={{ maxWidth: '60rem', margin: '0 auto', background: 'none' }}>
-
-        <h1 className="u-mb60">Muhit Story, Research report & Idea archive</h1>
-        <span>Total number of ideas:</span><strong>{data.ideasPaginated.totalCount}</strong>
-        <br />
+      <main className="u-ph10" style={{ maxWidth: '60rem', margin: '0 auto', background: 'none' }}>
 
         <IdeaMap ideas={ideasPaginated} />
 
