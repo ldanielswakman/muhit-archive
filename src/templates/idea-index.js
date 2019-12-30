@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import { Helmet } from "react-helmet"
 
 import Nav from "../components/nav"
+import Footer from "../components/footer"
 import Layout from "../components/layout"
 import IdeaListItem from "../components/idea-list-item"
 import IdeaMap from "../components/idea/idea-map"
@@ -56,6 +57,8 @@ export default ({ data, pageContext }) => {
         )}
 
         </main>
+
+        <Footer />
       
     </Layout>
   )

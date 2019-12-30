@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby"
 import { Helmet } from "react-helmet"
 
 import Nav from "../components/nav"
+import Footer from "../components/footer"
 import Layout from "../components/layout"
 import IdeaActions from "../components/idea/actions"
 import IdeaStatus from "../components/idea/status"
@@ -182,6 +183,8 @@ export default ({ data }) => {
 					</div>
 				</div>
 			</section>
+
+      <Footer />
 			
 		</Layout>
 	)

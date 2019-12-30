@@ -1,4 +1,5 @@
 /* Nav */
+nav .row { max-width: 60rem; }
 .nav-spacer { height: 80px; }
 /* Nav on mobile */
 @media screen and (max-width: 768px) {

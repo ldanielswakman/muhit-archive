@@ -6,7 +6,9 @@ export default (props) => {
 	return (
     <div className="clearfix u-mb50">
 
-      <h4 className="c-medium">Comments</h4>
+      {idea.comments.length > 0 && (
+        <h4 className="c-medium">Comments</h4>
+      )}
 
       {idea.comments.map((comment) => (
         <div key={comment.id} className="comment" id={'comment-' + comment.id}>

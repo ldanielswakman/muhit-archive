@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby"
 import { Helmet } from "react-helmet"
 
 import Nav from "../components/nav"
+import Footer from "../components/footer"
 import Layout from "../components/layout"
 
 export default ({ data }) => {
@@ -22,18 +23,27 @@ export default ({ data }) => {
 
 			<main className="u-ph10 u-mt60" style={{ maxWidth: '60rem', margin: '0 auto', background: 'none' }}>
 
-				<h1 className="u-mb60">Muhit Story, Research report & Idea archive</h1>
+				<h1 className="u-mb20">Muhit Project</h1>
 
-				<div className="list list-expanded list_block u-mt10 u-mb20" style={{ marginTop: '5rem', maxWidth: '60rem' }}>
+				<p className="u-opacity75 u-mb20">Muhit was a crowdsourced neighbourhood improvement platform, that ran as a non-profit initiative from 2015 to 2018 in Turkey. Its crowdsourced mapping tool allowed Turkish citizens to report problems and ideas in their neighbourhood, thereby creating a dataset of the most important themes facing urban environments. A report with the outcomes is currently in the making.</p>
+
+				<div className="u-mb40" style={{ display: 'flex' }}>
+					<Link to="/ideas" className="btn btn-primary u-mr20">Browse idea archive</Link>
+					<a href="http://hikaye.muhit.co/en" className="btn btn-subtle">landing page</a>
+				</div>
+
+				<p className="u-opacity75">Browse latest ideas:</p>
+
+				<div className="list list-small list_block u-mt10 u-mb20" style={{ marginTop: '5rem', maxWidth: '60rem' }}>
 					<ul className="list-content">
 						{ideas.map(({ node },i) => (
 							<React.Fragment key={node.id}>
-								{(i < 3) && (
+								{(i < 5) && (
 				          <li>
-				            <Link to={'idea/' + node.id} >
+				            <Link to={'idea/' + node.id} className="u-lineheight15">
 				            	<div className="badge badge-image u-floatleft u-mr15 u-pt15">{node.id}</div>
-				              <strong>{node.title}</strong>
-				              <p>{node.title}</p>
+				              <strong className="u-block u-pt5">{node.title}</strong>
+				              <p>{node.created_at}</p>
 				            </Link>
 				          </li>
 				        )}
@@ -46,6 +56,8 @@ export default ({ data }) => {
 				</div>
 
 				</main>
+
+				<Footer />
 			
 		</Layout>
 	)
@@ -53,12 +65,15 @@ export default ({ data }) => {
 
 export const query = graphql`
   query {
-    allIdeasJson {
+    allIdeasJson(
+    	sort: { fields: [created_at], order: DESC }
+    ) {
       totalCount
       edges {
         node {
           id
           title
+          created_at(formatString: "D MMM YYYY")
         }
       }
     }
