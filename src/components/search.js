@@ -57,6 +57,7 @@ class Search extends Component {
     const { search } = this.state
     const queryResult = search.search('')
     this.setState({ searchQuery: '', searchResults: queryResult })
+    this.props.numResults(undefined);
   }
   handleSubmit = e => {
     e.preventDefault()
@@ -87,30 +88,30 @@ class Search extends Component {
         </form>
         <div>
 
-          {this.props.numResults !== undefined && (
-            <div className="list list-expanded list_block u-mt10 u-mb20" style={{ marginTop: '5rem', maxWidth: '60rem' }}>
-              <ul className="list-content">
-                {queryResults.length > 0 ? (
-                  <React.Fragment>
-                    {queryResults.map((item, i) => (
-                      <React.Fragment key={i}>
-                        {(i < 20) && (
-                          <li>
-                            <IdeaListItem idea={item} />
-                          </li>
-                        )}
-                      </React.Fragment>
-                    ))}
-                    {(queryResults.length > 20) && (
-                      <li><a className="u-pl80 c-light">...And {queryResults.length - 20} more</a></li>
-                    )}  
-                  </React.Fragment>
-                ) : (
-                  <li><a className="u-pl80 c-light">No results for <b>{searchQuery}</b></a></li>
-                )}
-              </ul>
-            </div>
-          )}
+        {queryResults.length !== ideaList.length && (
+          <div className="list list-expanded list_block u-mt10 u-mb20" style={{ marginTop: '5rem', maxWidth: '60rem' }}>
+            <ul className="list-content">
+              {queryResults.length > 0 ? (
+                <React.Fragment>
+                  {queryResults.map((item, i) => (
+                    <React.Fragment key={i}>
+                      {(i < 20) && (
+                        <li>
+                          <IdeaListItem idea={item} />
+                        </li>
+                      )}
+                    </React.Fragment>
+                  ))}
+                  {(queryResults.length > 20) && (
+                    <li><a className="u-pl80 c-light">...And {queryResults.length - 20} more — <span className="c-blue" onClick={this.emptyQuery} style={{ cursor: 'pointer', fontWeight: 600 }}>Clear</span></a></li>
+                  )}  
+                </React.Fragment>
+              ) : (
+                <li><a className="u-pl80 c-light">No results for <b>{searchQuery}</b> — <span className="c-blue" onClick={this.emptyQuery} style={{ cursor: 'pointer', fontWeight: 600 }}>Clear</span></a></li>
+              )}
+            </ul>
+          </div>
+        )}
 
         </div>
       </React.Fragment>

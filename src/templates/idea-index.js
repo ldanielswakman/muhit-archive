@@ -13,15 +13,12 @@ import Search from "../components/search"
 export default ({ data, pageContext }) => {
   const ideasPaginated = data.ideasPaginated.edges;
   const { currentPage, numPages } = pageContext;
-  const [numSearchResults, handleSearchResults] = useState(0);
+  const [numSearchResults, handleSearchResults] = useState(undefined);
 
   var ideasTotal = [];
   data.ideasTotal.edges.map((item, i) => {
     ideasTotal.push(item.node);
   })
-
-  console.log(ideasPaginated);
-  console.log(ideasTotal);
 
   return (
     <Layout>
