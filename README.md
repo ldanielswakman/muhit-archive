@@ -1,4 +1,11 @@
+<p align="center">
+  <a href="https://www.gatsbyjs.org">
+    <img alt="Gatsby" src="//www.muhit.co/images/logo.svg" width="120" />
+  </a>
+</p>
+
 # Muhit Archive
+https://muhit.co
 
 Gatsby repository for Muhit Idea Archive.
 

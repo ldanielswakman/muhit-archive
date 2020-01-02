@@ -1,5 +1,7 @@
 import React from 'react'
 
+// Logo, white
+
 export default () => (
 	<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 599.5 130.9" style={{ enableBackground: 'new 0 0 599.5 130.9' }} height="36px" className="logo-svg logo-svg-white">
 		<g id="logo">
