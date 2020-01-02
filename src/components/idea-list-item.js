@@ -25,9 +25,9 @@ function getIssueStatus(status, supporters) {
   return issue_status
 }
 
-function getImageURL(url, size = '80x80') {
-  const baseURL = '//d1vwk06lzcci1w.cloudfront.net/';
-  return baseURL + size + '/' + url;
+function getImageURL(url) {
+  const baseURL = '//muhit.s3-eu-west-1.amazonaws.com/';
+  return baseURL + url;
 }
 
 export default (props) => {
@@ -35,7 +35,7 @@ export default (props) => {
   const { idea, ignoreImage } = props;
   const issueStatus = getIssueStatus(idea.status, idea.supporter_count);
   const image = (idea.images.length > 0) ? idea.images[0].image : 'placeholders/issue.jpg';
-  const imageURL = getImageURL(image, '50x50');
+  const imageURL = getImageURL(image);
 
   return (
     <Link to={'idea/' + idea.id}>
@@ -46,7 +46,7 @@ export default (props) => {
         </div>
       ):(
         <div className="badge badge-image u-floatleft u-mr15">
-          <img src={ imageURL } alt={idea.title} />
+          <img src={ imageURL } alt={idea.title} style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
         </div>
       )}
 

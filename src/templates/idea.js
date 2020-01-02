@@ -9,9 +9,9 @@ import IdeaActions from "../components/idea/actions"
 import IdeaStatus from "../components/idea/status"
 import IdeaComments from "../components/idea/comments"
 
-function getImageURL(url, size = '80x80') {
-  const baseURL = '//d1vwk06lzcci1w.cloudfront.net/';
-  return baseURL + size + '/' + url;
+function getImageURL(url) {
+  const baseURL = '//muhit.s3-eu-west-1.amazonaws.com/';
+  return baseURL + url;
 }
 
 export default ({ data }) => {
@@ -90,7 +90,7 @@ export default ({ data }) => {
                             <div key={i} style={{ height: '100%' }}>
                               <div
                               	className="media-image"
-                              	style={{ backgroundImage: 'url(' + getImageURL(image.image, '600x300') + ')' }}
+                              	style={{ backgroundImage: 'url(' + getImageURL(image.image) + ')' }}
                               	title={ idea.title }
                             	/>
                             </div>
@@ -139,7 +139,7 @@ export default ({ data }) => {
                 	{idea.is_anonymous === 0 ? (
                 		<React.Fragment>
                       <div className="badge badge-circle badge-user u-floatleft u-mr10">
-                          <img src={getImageURL(idea.user.picture, '40x40')} alt={idea.user.first_name} />
+                          <img src={getImageURL(idea.user.picture)} alt={idea.user.first_name} />
                       </div>
                       <div className="c-light u-pt5">
                           {idea.user.first_name} {idea.user.last_name}
