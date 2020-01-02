@@ -99,6 +99,8 @@ export const query = graphql`
         node {
           id
           title
+          problem
+          solution
           supporter_count
           status
           created_at(formatString: "D MMM YYYY")
