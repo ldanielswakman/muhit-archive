@@ -2,7 +2,7 @@ module.exports = {
 
   siteMetadata: {
     title: `Muhit Archive`,
-    siteUrl: `https://muhit-archive.netlify.com/`,
+    siteUrl: `https://muhit.co`,
     description: `Muhit is a crowdsourced neighbourhood improvement platform`,
   },
 
