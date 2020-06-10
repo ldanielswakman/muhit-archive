@@ -1,7 +1,7 @@
 module.exports = {
 
   siteMetadata: {
-    title: `Muhit Archive`,
+    title: `Muhit - Co-creating better cities`,
     siteUrl: `https://muhit.co`,
     description: `Muhit was a crowdsourced neighbourhood improvement platform, active as a non-profit from 2015-2018`,
   },
